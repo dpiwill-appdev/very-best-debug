@@ -39,7 +39,7 @@
 
   <dt>Delete venue</dt>
   <dd>
-    <a href="/delete_venue/<% @the_venue.id %>">
+    <a href="/delete_venue/<%= @the_venue.id %>">
       Delete this venue
     </a>
   </dd>
@@ -54,7 +54,7 @@
     <th>Posted</th>
   </tr>
 
-  <% @the_venue.comments.each do |comment| %>
+  <% @list_of_comments.each do |comment| %>
   <tr>
     <td>
       <%= comment.commenter.username %>

@@ -1,41 +1,40 @@
-<h1>List of users</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Very Best Debug</title>
+    <!-- Your head content goes here -->
+  </head>
 
-<form action="/insert_user_record">
-  <label for="browser_username">Username</label>
-  <input id="browser_username" type="text" name="query_username" placeholder="Enter a username...">
+  <body>
+    <nav>
+      <!-- Your navigation code goes here -->
+    </nav>
+    <h1>List of users</h1>
 
-  <button>Add user</button>
-</form>
+    <form action="/insert_user_record">
+      <label for="browser_username">Username</label>
+      <input id="browser_username" type="text" name="query_username" placeholder="Enter a username...">
 
-<hr>
+      <button>Add user</button>
+    </form>
 
-<table border="1">
-  <tr>
-    <th>
-      ID
-    </th>
+    <hr>
 
-    <th>
-      Username
-    </th>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th></th>
+      </tr>
 
-    <th></th>
-  </tr>
-
-  <% @users.each do |user| %>
-  <tr>
-    <td>
-      <%= user.id %>
-    </td>
-
-    <td>
-      <%= user.username %>
-    </td>
-
-    <td>
-      <a href="/users/<%= user.username %>">Show details</a>
-    </td>
-  </tr>
-  
-  <% end %>
-</table>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.username %></td>
+          <td><a href="/users/<%= user.username %>">Show details</a></td>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
+<%= @users.inspect %>

@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+
   def index
     matching_venues = Venue.all
     @venues = matching_venues.order(:created_at)
@@ -15,12 +16,13 @@ class VenuesController < ApplicationController
     if @the_venue == nil
       redirect_to("/404")
     else
-      render({ :template => "venue_templates/details.html.erb" })
+    render({ :template => "venue_templates/details.html.erb" })
     end
   end
 
   def create
-    addy = params.fetch("query_address")
+    
+    addy = params.fetch("query_address") 
     name = params.fetch("query_name")
     hood = params.fetch("query_neighborhood")
 
@@ -32,7 +34,7 @@ class VenuesController < ApplicationController
 
     redirect_to("/venues/#{venue.id}")
   end
-
+  
   def update
     the_id = params.fetch("the_id")
 
@@ -41,7 +43,7 @@ class VenuesController < ApplicationController
     venue.name = params.fetch("query_name")
     venue.neighborhood = params.fetch("query_neighborhood")
     venue.save
-
+    
     redirect_to("/venues/#{venue.id}")
     #render({ :template => "venue_templates/update.html.erb" })
   end
@@ -55,4 +57,5 @@ class VenuesController < ApplicationController
     redirect_to("/venues")
     #render({ :template => "venue_templates/delete.html.erb" })
   end
+
 end
